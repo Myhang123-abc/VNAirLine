@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Flight.cpp" />
     <ClCompile Include="VNAirLine.cpp" />
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="RandomGenerator.cpp" />
@@ -146,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Customer.h" />
+    <ClInclude Include="Flight.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="RandomGenerator.h" />
     <ClInclude Include="User.h" />
