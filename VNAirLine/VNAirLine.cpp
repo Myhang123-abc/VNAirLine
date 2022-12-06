@@ -4,9 +4,6 @@
 int main()
 {
     srand(time(NULL));
-    RandomGenerator random;
-    string a = random.randomFlightNumGen(4,3);
-    cout << a;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
