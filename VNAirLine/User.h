@@ -6,7 +6,7 @@
 class User
 {
 private:
-	vector<Customer> customerCollection;
+	static vector<Customer> customerCollection;
 public:
 	string adminUserNameandPassword[10][2];
 	vector<Customer> getCustomerCollection();

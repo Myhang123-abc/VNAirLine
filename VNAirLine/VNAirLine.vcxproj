@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Flight.cpp" />
+    <ClCompile Include="RoleAndPermissions.cpp" />
     <ClCompile Include="VNAirLine.cpp" />
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="RandomGenerator.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Flight.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="RandomGenerator.h" />
+    <ClInclude Include="RoleAndPermissions.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

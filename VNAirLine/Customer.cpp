@@ -1,4 +1,7 @@
 #include "Customer.h"
+#include "User.h"
+User u;
+vector<Customer> Customer::customerCollection = u.getCustomerCollection();
 
 Customer::Customer()
 {
@@ -47,4 +50,12 @@ bool Customer::isUniqueData(string emailID)
 string Customer::getEmail()
 {
 	return email;
+}
+string Customer::getPassword()
+{
+	return password;
+}
+string Customer::getUserID()
+{
+	return userID;
 }

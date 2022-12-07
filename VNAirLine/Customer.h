@@ -16,12 +16,14 @@ private:
 	
 public:
 	vector<int> numOfTicketBookedByUser;
-	vector<Customer> customerCollection;
+	static vector<Customer> customerCollection;
 	Customer();
 	Customer(string name, string email, string password, string phone, string address, int age);
 	void addNewCustomer();
 	bool isUniqueData(string emailID);
 	string getEmail();
+	string getPassword();
+	string getUserID();
 };
 #endif // !Class
 
