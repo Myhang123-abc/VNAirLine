@@ -4,7 +4,9 @@
 #include "Header.h"
 class FlightDistance
 {
-
+public:
+    virtual string tostring(int)=0;
+    void displayMeasurementInstructions();
 };
 #endif // !FlightDistance_HEADER
 
