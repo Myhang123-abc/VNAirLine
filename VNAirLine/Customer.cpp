@@ -45,7 +45,7 @@ void Customer::addNewCustomer()
 	string address; cin>>address;
 	printf("Enter your age :\t");
 	int age; cin>>age;
-	customerCollection.push_back(new Customer(name,email,password,phone,address,age));
+	customerCollection.push_back(Customer(name,email,password,phone,address,age));
 }
 
 void Customer::displayHeader()
