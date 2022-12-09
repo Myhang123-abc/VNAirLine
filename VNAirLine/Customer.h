@@ -3,6 +3,7 @@
 #define Customer_HEADER
 #include "Header.h"
 #include "RandomGenerator.h"
+#include "Flight.h"
 class Customer
 {
 private:
@@ -25,6 +26,17 @@ public:
 	string getPassword();
 	string getUserID();
 	void displayHeader();
+	string getPhone();
+	string getAddress();
+	int getAge();
+	string getName();
+	vector<int> getNumofTicketsBookedByUser();
+	vector<Flight> getFlightsRegistereByUser();
+	void setName(string name);
+	void setAge(int age);
+	void setEmail(string email);
+	void setPhone(string phone);		
+	void setAddres(string address);
 };
 #endif // !Class
 
