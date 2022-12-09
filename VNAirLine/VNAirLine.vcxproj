@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Flight.cpp" />
     <ClCompile Include="FlightDistance.cpp" />
+    <ClCompile Include="FlightReservation.cpp" />
     <ClCompile Include="RoleAndPermissions.cpp" />
     <ClCompile Include="VNAirLine.cpp" />
     <ClCompile Include="Customer.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="DisplayClass.h" />
     <ClInclude Include="Flight.h" />
     <ClInclude Include="FlightDistance.h" />
+    <ClInclude Include="FlightReservation.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="RandomGenerator.h" />
     <ClInclude Include="RoleAndPermissions.h" />
