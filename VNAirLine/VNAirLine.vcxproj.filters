@@ -59,5 +59,8 @@
     <ClInclude Include="FlightDistance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DisplayClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
