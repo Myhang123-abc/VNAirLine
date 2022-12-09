@@ -16,6 +16,7 @@ private:
 	int age;
 	
 public:
+	vector<Flight> flightsRegisteredByUser;
 	vector<int> numOfTicketBookedByUser;
 	static vector<Customer> customerCollection;
 	Customer();
@@ -36,7 +37,7 @@ public:
 	void setAge(int age);
 	void setEmail(string email);
 	void setPhone(string phone);		
-	void setAddres(string address);
+	void setAddress(string address);
 };
 #endif // !Class
 
