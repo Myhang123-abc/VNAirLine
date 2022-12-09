@@ -83,3 +83,47 @@ string Customer::getUserID()
 {
 	return userID;
 }
+string Customer::getPhone()
+{
+	return phone;
+}
+string Customer::getAddress()
+{
+	return address;
+}
+int Customer::getAge()
+{
+	return age;
+}
+string Customer::getName()
+{
+	return name;
+}
+vector<int> Customer::getNumofTicketsBookedByUser()
+{
+	return numOfTicketBookedByUser;
+}
+vector<Flight> Customer::getFlightsRegistereByUser()
+{
+	return flightsRegisteredByUser;
+}
+void Customer::setName(string name)
+{
+	this->name=name;
+}
+void Customer::setAge(int age)
+{
+	this->age=age;
+}
+void Customer::setEmail(string email)
+{
+	this->email=email;
+}
+void Customer::setAddress(string address)
+{
+	this->address=address;
+}
+void Customer::setPhone(string phone)
+{
+	this->phone=phone;
+}
