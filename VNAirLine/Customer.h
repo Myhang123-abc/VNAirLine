@@ -24,6 +24,7 @@ public:
 	string getEmail();
 	string getPassword();
 	string getUserID();
+	void displayHeader();
 };
 #endif // !Class
 

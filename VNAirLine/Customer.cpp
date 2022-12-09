@@ -33,6 +33,15 @@ void Customer::addNewCustomer()
 
 }
 
+void Customer::displayHeader()
+{
+	cout << endl;
+	printf("%10s+------------+------------+----------------------------------+---------+-----------------------------+-------------------------------------+-------------------------+\n", "");
+	printf("%10s| SerialNum  |   UserID   | Passenger Names                  | Age     | EmailID\t\t       | Home Address\t\t\t     | Phone Number\t       |%n", "","");
+	printf("%10s+------------+------------+----------------------------------+---------+-----------------------------+-------------------------------------+-------------------------+\n", "");
+	cout << endl;
+}
+
 bool Customer::isUniqueData(string emailID)
 {
 	bool isUnique = false;
