@@ -30,7 +30,22 @@ void Customer::addNewCustomer()
 	printf("\n\n\n%60s ++++++++++++++ Cong dang ki khach hang moi ++++++++++++++", "");
 	printf("\nNhap ten cua ban: \t");
 	string name; cin >> name;
-
+	printf("Enter your name address: \t");
+	string email; cin>> email;
+	while(isUniqueData(email)){
+		printf("ERROR!!! User with the same email already exists... Use new email or login using the previous credentials....");
+		printf("Enter your email address :\t");
+		cin>>email;
+	}
+	printf("Enter your Password: \t");
+	string password; cin>>password;
+	printf("Enter your Phone number :\t");
+	string phone; cin>>phone;
+	printf("Enter your address :\t");
+	string address; cin>>address;
+	printf("Enter your age :\t");
+	int age; cin>>age;
+	customerCollection.push_back(new Customer(name,email,password,phone,address,age));
 }
 
 void Customer::displayHeader()
