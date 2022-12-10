@@ -4,4 +4,7 @@
 int main()
 {
     srand(time(NULL));
+    RandomGenerator random;
+    string** chosen = random.randomDestinations();
+    random.displayChosenDestinations(chosen);
 }
