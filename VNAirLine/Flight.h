@@ -23,12 +23,22 @@ private:
 
     void addNewCustomerToFlight(Customer customer);
     void addTicketsToExistingCustomer(Customer customer, int numOfTickets);
-    boolean isCustomerAlreadyAdded(vector<Customer> customersList, Customer customer);
+    bool isCustomerAlreadyAdded(vector<Customer> customersList, Customer customer);
     void deleteFlight(string flightNumber);
     double degreeToRadian(double deg);
     double radianToDegree(double rad);
 
-    int getNoOfSeats() ;
+public:
+	Flight();
+    Flight(string flightSchedule, string flightNumber, int numOfSeatsInTheFlight, string chosenDestinations[][3], string distanceBetweenTheCities[], string gate);
+    void flightScheduler();
+    string calculateFlightTime(double distanceBetweenTheCities);
+    string fetchArrivalTime();
+    void displayFlightSchedule();
+    string* calculateDistance(double lat1, double lon1, double lat2, double lon2);
+
+    // Getters & Setters
+    int getNoOfSeats();
     string getFlightNumber();
     void setNoOfSeatsInTheFlight(int numOfSeatsInTheFlight);
     string getFlightTime();
@@ -38,13 +48,6 @@ private:
     string getFromWhichCity();
     string getGate();
     string getToWhichCity();
-public:
-	Flight();
-    Flight(string flightSchedule, string flightNumber, int numOfSeatsInTheFlight, string chosenDestinations[][], string distanceBetweenTheCities[], string gate);
-    void flightScheduler();
-    string calculateFlightTime(double distanceBetweenTheCities);
-    string fetchArrivalTime();
-    void displayFlightSchedule();
 };
 
 #endif // !Flight_HEADER
