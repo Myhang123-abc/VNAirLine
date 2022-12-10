@@ -6,6 +6,7 @@
 #include "Customer.h"
 class DisplayClass
 {
+protected:
 	virtual void displayRegisteredUsersForAllFlight() = 0;
 	virtual void displayRegisteredUsersForASpecificFlight(string flightNum) = 0;
 	virtual void displayHeaderForUsers(Flight flight, vector<Customer> c) = 0;

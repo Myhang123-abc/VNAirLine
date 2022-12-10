@@ -35,14 +35,17 @@ public:
     string getFromWhichCity();
     string getGate();
     string getToWhichCity();
-    //Method
+    // Constructors
     Flight();
-    Flight(string flightSchedule, string flightNumber, int numOfSeatsInTheFlight, string chosenDestinations[][3], string distanceBetweenTheCities[], string gate);
+    Flight(string flightSchedule, string flightNumber, int numOfSeatsInTheFlight, string** chosenDestinations, string* distanceBetweenTheCities, string gate);
+    //Methods
+    string tostring(int);
     void flightScheduler();
     string calculateFlightTime(double distanceBetweenTheCities);
     string fetchArrivalTime();
     void displayFlightSchedule();
     string* calculateDistance(double lat1, double lon1, double lat2, double lon2);
+    string createNewFlightsAndTime();
 
     void addNewCustomerToFlight(Customer customer);
     void addTicketsToExistingCustomer(Customer customer, int numOfTickets);
