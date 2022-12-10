@@ -3,7 +3,8 @@
 #define Flight_HEADER
 #include "Header.h";
 #include "Customer.h"
-class Flight
+#include "FlightDistance.h"
+class Flight : public FlightDistance
 {
 private:
     string flightSchedule;
