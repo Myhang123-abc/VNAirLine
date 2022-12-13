@@ -23,6 +23,13 @@ public:
 	Customer(string name, string email, string password, string phone, string address, int age);
 	void addNewCustomer();
 	bool isUniqueData(string emailID);
+	void addNewFlightToCustomerList(Flight f);
+	void searchUser(string ID);
+	void editUserInfo(string ID);
+	void deleteUser(string ID);
+	void displayCustomersData(bool showHeader);
+	string randomIDDisplay(string randomID);
+	void addExistingFlightToCustomerList(int index, int numOfTickets);
 	string getEmail();
 	string getPassword();
 	string getUserID();

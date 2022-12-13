@@ -5,12 +5,12 @@ vector<Customer> Customer::customerCollection = u.getCustomerCollection();
 
 Customer::Customer()
 {
-	this->userID = "";
-	this->email = "";
-	this->name = "";
-	this->phone = "";
-	this->password = "";
-	this->address = "";
+	this->userID = nullptr;
+	this->email = nullptr;
+	this->name = nullptr;
+	this->phone = nullptr;
+	this->password = nullptr;
+	this->address = nullptr;
 	this->age = 0;
 }
 Customer::Customer(string name, string email, string password, string phone, string address, int age)

@@ -4,7 +4,7 @@
 #include "Header.h";
 #include "Customer.h"
 #include "FlightDistance.h"
-class Flight : public FlightDistance
+class Flight 
 {
 private:
     string flightSchedule;
@@ -39,7 +39,7 @@ public:
     Flight();
     Flight(string flightSchedule, string flightNumber, int numOfSeatsInTheFlight, string** chosenDestinations, string* distanceBetweenTheCities, string gate);
     //Methods
-    string tostring(int);
+    string toString(int);
     void flightScheduler();
     string calculateFlightTime(double distanceBetweenTheCities);
     string fetchArrivalTime();

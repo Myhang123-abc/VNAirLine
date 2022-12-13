@@ -5,6 +5,9 @@ int main()
 {
     srand(time(NULL));
     RandomGenerator random;
-    string** chosen = random.randomDestinations();
-    random.displayChosenDestinations(chosen);
+    int name;
+    for (int i = 0; i < 10; i++) {
+        name = random.randomOfNumSeat();
+        cout << name << endl;
+    }
 }

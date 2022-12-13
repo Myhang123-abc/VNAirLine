@@ -79,7 +79,43 @@ void Flight::flightScheduler()
     }
 }
 
-string Flight::tostring(int)
+void Flight::addNewCustomerToFlight(Customer customer)
 {
-    return;
+    this->listOfRegisteredCustomersInAFlight.push_back(customer);
+}
+
+void Flight::addTicketsToExistingCustomer(Customer customer, int numOfTickets)
+{
+    customer.addExistingFlightToCustomerList(customerIndex, numOfTickets);
+}
+
+bool Flight::isCustomerAlreadyAdded(vector<Customer> customersList, Customer customer)
+{
+    bool isAdded = false;
+    for (Customer customer1 : customersList)
+    {
+        if (customer1.getUserID() == customer.getUserID())
+        {
+            isAdded = true;
+            vector<Customer>::iterator itr = find(customersList.begin(),customersList.end(),customer1);
+            customerIndex = distance(customersList.begin(), itr);
+            break;
+        }
+    }
+    return isAdded;
+}
+
+void Flight::deleteFlight(string flightNumer)
+{
+    bool isFound = false;
+    for (Flight f : flightList)
+    {
+        if (flightNumber == f.getFlightNumber())
+        {
+            isFound = true;
+            vector<Flight>::iterator itr = remove(flightList.begin(), flightList.end(), f);
+            break;
+        }
+    }
+    if (!isFound) cout << "Flight with given number not found!";
 }
