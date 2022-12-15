@@ -14,7 +14,7 @@ private:
 	string password;
 	string address;
 	int age;
-	
+	string toString(int i);
 public:
 	vector<Flight> flightsRegisteredByUser;
 	vector<int> numOfTicketBookedByUser;
@@ -28,7 +28,6 @@ public:
 	void editUserInfo(string ID);
 	void deleteUser(string ID);
 	void displayCustomersData(bool showHeader);
-	string randomIDDisplay(string randomID);
 	void addExistingFlightToCustomerList(int index, int numOfTickets);
 	string getEmail();
 	string getPassword();

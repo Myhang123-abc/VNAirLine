@@ -5,12 +5,12 @@ vector<Customer> Customer::customerCollection = u.getCustomerCollection();
 
 Customer::Customer()
 {
-	this->userID = nullptr;
-	this->email = nullptr;
-	this->name = nullptr;
-	this->phone = nullptr;
-	this->password = nullptr;
-	this->address = nullptr;
+	this->userID = "";
+	this->email = "";
+	this->name = "";
+	this->phone = "";
+	this->password = "";
+	this->address = "";
 	this->age = 0;
 }
 Customer::Customer(string name, string email, string password, string phone, string address, int age)
@@ -48,6 +48,36 @@ void Customer::addNewCustomer()
 	customerCollection.push_back(Customer(name,email,password,phone,address,age));
 }
 
+string Customer::toString(int i)
+{
+	string display;
+	display = i + " | " + userID + " | " + name + " | " + to_string(age) + " | " + email + " | " + address + " | " + phone + " | ";
+	return display;
+}
+
+void Customer::searchUser(string ID)
+{
+	bool isFound = false;
+	Customer customerWithTheID = customerCollection.at(0);
+	for (Customer c : customerCollection)
+	{
+		if (ID == c.getUserID())
+		{
+			cout << "Customer found! Here is full record:";
+			isFound = true;
+			displayHeader();
+			customerWithTheID = c;
+			break;
+		}
+	}
+	if (isFound)
+	{
+		cout << toString(1);
+	}
+	else cout << "No customer with the ID found!";
+
+}
+
 void Customer::displayHeader()
 {
 	cout << endl;
@@ -55,6 +85,41 @@ void Customer::displayHeader()
 	printf("%10s| SerialNum  |   UserID   | Passenger Names                  | Age     | EmailID\t\t       | Home Address\t\t\t     | Phone Number\t       |%n", "","");
 	printf("%10s+------------+------------+----------------------------------+---------+-----------------------------+-------------------------------------+-------------------------+\n", "");
 	cout << endl;
+}
+
+void Customer::editUserInfo(string ID)
+{
+	string idNeeded;
+	cin >> idNeeded;
+	bool isFound = false;
+	for (Customer c : customerCollection)
+	{
+		if (ID == c.getUserID())
+		{
+			string name;
+			string temp;
+			int temp1;
+			bool isFound = true;
+			cout << "\nEnter the new name of the Passenger:\t";
+			cin >> name; 
+			c.setName(name);
+			cout << "Enter the new email address of Passenger " + name + ":\t";
+			cin >> temp;
+			c.setEmail(temp);
+			cout << "Enter the new Phone number of Passenger " + name + ":\t";
+			cin >> temp;
+			c.setPhone(temp);
+			cout << "Enter the new address of Passenger " + name + ":\t";
+			cin >> temp;
+			c.setAddress(temp);
+			cout << "Enter the new age of Passenger " + name + ":\t";
+			cin >> temp1;
+			c.setAge(temp1);
+			displayCustomersData(false);
+			break;
+		}
+	}
+	if (!isFound) cout << "No customer with the ID found!";
 }
 
 bool Customer::isUniqueData(string emailID)
@@ -71,6 +136,51 @@ bool Customer::isUniqueData(string emailID)
 	}
 	return isUnique;
 }
+
+void Customer::deleteUser(string ID)
+{
+	bool isFound = false;
+	vector<Customer>::iterator index;
+	for (Customer c : customerCollection)
+	{
+		if (ID == c.getUserID())
+		{
+			isFound = true;
+			index = find(customerCollection.begin(), customerCollection.end(), c);
+			break;
+		}
+	}
+	if (isFound)
+	{
+		customerCollection.erase(index);
+		cout << "Printing all  Customer's Data after deleting Customer with the ID " + ID + ": \n";
+		displayCustomersData(false);
+	}
+	else cout << "No customer with the ID found!";
+}
+
+void Customer::addNewFlightToCustomerList(Flight f)
+{
+	this->flightsRegisteredByUser.push_back(f);
+}
+
+void Customer::displayCustomersData(bool showHeader)
+{
+	displayHeader();
+	int length = customerCollection.size();
+	for (int i = 0; i < length; i++)
+	{
+		cout << customerCollection[i].toString(i);
+	}
+}
+
+void Customer::addExistingFlightToCustomerList(int index, int numOfTickets)
+{
+	int newNumOfTickets = numOfTicketBookedByUser.at(index) + numOfTickets;
+	this->numOfTicketBookedByUser.at(index) = newNumOfTickets;
+}
+
+/*Getters & Setters*/
 string Customer::getEmail()
 {
 	return email;
