@@ -128,20 +128,23 @@ string Flight::calculateFlightTime(double distanceBetweenTheCities)
     sstream.setf(ios::fixed);
     sstream.precision(2);
     sstream << time;
-    string timeInString = to_string(time);
+    string timeInString = sstream.str();
     string hourString;
     string minuteString;
     for (int i = 0; i < timeInString.length(); i++)
     {
         if (timeInString[i] == '.')
         {
-            timeInString.replace(i, 1, ":");
-            hourString = timeInString.substr(0, i - 1);
-            minuteString = timeInString.substr(i);
+            timeInString[i] = ':';
+            hourString = timeInString.substr(0, i + 1);
+            minuteString = timeInString.substr(i+1);
+            break;
         }
     }
-    int hour = stoi(hourString);
-    int minute = stoi(minuteString);
+    const char* temp = hourString.c_str();
+    int hour = atoi(temp);
+    temp = minuteString.c_str();
+    int minute = atoi(temp);
     int modulus = minute % 5;
     if (modulus < 3) minute -= modulus;
     else minute += 5 - modulus;
@@ -154,5 +157,4 @@ string Flight::calculateFlightTime(double distanceBetweenTheCities)
     else if (hour <= 9 and minute > 9) return "0" + to_string(hour) + ":" + to_string(minute);
     else if (hour >9 and minute <=9) return to_string(hour) + ":" + "0" + to_string(minute);
     else return to_string(hour) + ":" + to_string(minute);
-
 }
