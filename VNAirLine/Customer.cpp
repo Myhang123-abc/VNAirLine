@@ -99,7 +99,7 @@ void Customer::editUserInfo(string ID)
 			string name;
 			string temp;
 			int temp1;
-			bool isFound = true;
+			isFound = true;
 			cout << "\nEnter the new name of the Passenger:\t";
 			cin >> name; 
 			c.setName(name);
