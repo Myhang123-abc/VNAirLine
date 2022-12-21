@@ -1,56 +1,57 @@
 #pragma once
-#ifndef Flight_HEADER
-#define Flight_HEADER
-#include "Header.h";
-#include "Customer.h"
-#include "FlightDistance.h"
-class Flight 
+#pragma warning(disable : 4996)
+#ifndef Flight_Header
+#define Flight_Header
+#include "Header.h"
+#include "RandomGenerator.h"
+class Flight
 {
 private:
+    /*Properties*/
     string flightSchedule;
     string flightNumber;
     string fromWhichCity;
     string gate;
     string toWhichCity;
     double distanceInMiles;
-    double distanceInKm;
     string flightTime;
-    int numOfSeatsInTheFlight;
-    vector<Customer> listOfRegisteredCustomersInAFlight;
-    int customerIndex;
     static int nextFlightDay;
-    static vector<Flight> flightList;
 
+    /*Method*/
     double degreeToRadian(double deg);
     double radianToDegree(double rad);
+    void randomTime(tm*& t);
 public:
-    // Getters & Setters
-    int getNoOfSeats();
-    string getFlightNumber();
-    void setNoOfSeatsInTheFlight(int numOfSeatsInTheFlight);
-    string getFlightTime();
-    vector<Flight> getFlightList();
-    vector<Customer> getListOfRegisteredCustomersInAFlight();
-    string getFlightSchedule();
-    string getFromWhichCity();
-    string getGate();
-    string getToWhichCity();
-    // Constructors
+    int numOfSeatsInTheFlight;
+    string toString(int i);
+
+    /*Static variable*/
+    static vector<Flight> flightList;
+
+    /*Overloading Operator*/
+    bool operator==(const Flight& flight);
+
+    /*Constructors*/
     Flight();
-    Flight(string flightSchedule, string flightNumber, int numOfSeatsInTheFlight, string** chosenDestinations, string* distanceBetweenTheCities, string gate);
-    //Methods
-    string toString(int);
+    Flight(string flightSchedule, string flightNumber, int numOfSeatsInTheFlight, string** chosenDestinations, string distanceBetweenTheCities, string gate);
+
+    /*Getters & Setters*/
+    string getFlightSchedule();
+    string getFlightNumber();
+    string getFromWhichCity();
+    string getToWhichCity();
+    string getGate();
+    string getFlightTime();
+    int getNumOfSeats();
+    vector<Flight> getFlightList();
+    void setNumOfSeats(int numOfSeats);
+
+    /*Method*/
     void flightScheduler();
     string calculateFlightTime(double distanceBetweenTheCities);
-    string fetchArrivalTime();
-    void displayFlightSchedule();
-    string* calculateDistance(double lat1, double lon1, double lat2, double lon2);
-    string createNewFlightsAndTime();
-
-    void addNewCustomerToFlight(Customer customer);
-    void addTicketsToExistingCustomer(Customer customer, int numOfTickets);
-    bool isCustomerAlreadyAdded(vector<Customer> customersList, Customer customer);
     void deleteFlight(string flightNumber);
+    string createNewFlightsAndTime();
+    string calculateDistance(double lat1, double lon1, double lat2, double lon2);
+    void displayFlightSchedule();
 };
-#endif // !Flight_HEADER
-
+#endif // !Flight_Header

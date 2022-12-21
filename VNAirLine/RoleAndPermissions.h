@@ -1,13 +1,13 @@
 #pragma once
-#ifndef RoleAndPermissions_HEADER
-#define RoleAndPermissions_HEADER
+#ifndef RoleAndPermission_Header
+#define RoleAndPermission_Header
 #include "Header.h"
 #include "User.h"
-class RoleAndPermissions : public User 
+class RoleAndPermission : public User
 {
 public:
 	int isPrivilegedUserOrNot(string username, string password);
 	string isPassengerRegistered(string email, string password);
 };
-#endif // !RoleAndPermissions_HEADER
+#endif // !RoleAndPermission_Header
 

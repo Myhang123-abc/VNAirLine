@@ -7,16 +7,12 @@ string RandomGenerator::destinations[MAX][3] =
 	{"Hai Phong", "20.86194", "106.68028"},
 	{"Da Nang", "16.05194", "108.21528"},
 	{"Can Tho", "10.03278", "105.78389"},
-	{"Da Nang", "16.05194", "108.21528"},
 	{"Bien Hoa", "10.95694", "106.84306"},
 	{"Thanh Hoa", "19.80750", "105.77639"},
 	{"Nha Trang", "12.23889", "109.19694"},
 	{"Vung Tau", "10.34583", "107.08472"},
 	{"Thu Duc", "10.88333", "106.72694"},
-	{"Hue", "16.46278", "107.58472"},
-	{"Buon Ma Thuot", "12.66667", "108.03889"},
 	{"Thai Nguyen", "21.56750", "105.82556"},
-	{"Vinh", "18.68083", "105.68167"},
 	{"Hai Duong", "20.93972", "106.31250"},
 	{"Nam Dinh", "20.42000", "106.16833"},
 	{"Ha Long", "20.97194", "107.04528"},
@@ -99,6 +95,25 @@ string RandomGenerator::randomFlightNumGen(int uptoHowManyLettersRequired, int d
 		char temp = getRandom(min, max) + 65;
 		randomAlphabet = randomAlphabet.append(to_string(temp));
 	}
-	randomAlphabet = randomAlphabet.append("-").append(to_string(randomOfNumSeat() / divisible));
+	int temp = randomOfNumSeat() / divisible;
+	string tempInString;
+	if (temp < 100)
+	{
+		tempInString = "0" + to_string(temp);
+	}
+	else tempInString = to_string(temp);
+	randomAlphabet = randomAlphabet.append("-").append(tempInString);
+	return randomAlphabet;
+}
+string RandomGenerator::randomGateGen()
+{
+	int min = 0, max = 25;
+	string randomAlphabet;
+	for (int i = 0; i < 1; i++)
+	{
+		char temp = getRandom(min, max) + 65;
+		randomAlphabet = randomAlphabet.append(to_string(temp));
+	}
+	randomAlphabet = randomAlphabet.append("-").append(to_string(getRandom(0, 9)));
 	return randomAlphabet;
 }

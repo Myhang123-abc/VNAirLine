@@ -1,26 +1,26 @@
-#include "RoleAndPermissions.h"
+#include "RoleAndPermission.h"
 
-int RoleAndPermissions::isPrivilegedUserOrNot(string username, string password)
+int RoleAndPermission::isPrivilegedUserOrNot(string username, string password)
 {
+	int length = sizeof(adminUserNameAndPassword) / sizeof(adminUserNameAndPassword[0]);
 	int isFound = -1;
-	int length = sizeof(adminUserNameandPassword) / sizeof(adminUserNameandPassword[0]);
-	for (int i = 0; i < length; i++) 
+	for (int i = 0; i < length; i++)
 	{
-		if(username == adminUserNameandPassword[i][0])
-			if (password == adminUserNameandPassword[i][1])
+		if (username == adminUserNameAndPassword[i][0])
+			if (password == adminUserNameAndPassword[i][1])
 			{
-				isFound = 1;
+				isFound = i;
 				break;
 			}
 	}
 	return isFound;
 }
 
-string RoleAndPermissions::isPassengerRegistered(string email, string password)
+string RoleAndPermission::isPassengerRegistered(string email, string password)
 {
 	string isFound = "0";
-	Customer temp;
-	for (Customer c : temp.customerCollection)
+	Customer customer;
+	for (Customer c : customer.customerCollection)
 	{
 		if(email == c.getEmail())
 			if (password == c.getPassword())

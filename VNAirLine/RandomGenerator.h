@@ -1,20 +1,24 @@
 #pragma once
-#ifndef RandomGenerator_HEADER
-#define RandomGenerator_HEADER
+#ifndef FlightReservation_Header
+#define FlightReservation_Header
 #include "Header.h"
-class RandomGenerator
+#include "Flight.h"
+#include "Customer.h"
+class FlightReservation
 {
-private:
-	string randomNum;
-	static string destinations[MAX][3];
-	int getRandom(int min, int max);
 public:
-	string getRandomNumber();
-	void setRandomNum(string randomNum);
-	void randomIDGen();
-	string** randomDestinations();
-	void displayChosenDestinations(string** chosenDestinations);
-	int randomOfNumSeat();
-	string randomFlightNumGen(int uptoHowManyLettersRequired, int divisible);
+	/*Properties*/
+	Flight flight;
+	Customer customer;
+	int flightIndexInFlightList;
+
+	/*Method*/
+	string toString(int i, Flight flight, Customer customer);
+	void bookFlight(string flightNo, int numOfTickets, string userID);
+	void cancelFlight(string userID);
+	bool isFlightAlreadyAddedToCustomerList(vector<Flight> flightList, Flight flight);
+	string flightStatus(Flight flight);
+	void displayFlightsRegisteredByOneUser(string userID);
 };
-#endif // !RandomGenerator_HEADER
+#endif // !FlightReservation_Header
+
